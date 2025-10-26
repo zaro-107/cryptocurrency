@@ -17,7 +17,7 @@ st_autorefresh(interval=3600000, key="crypto_refresh")  # 3600000 ms = 1 hour
 
 # ---- PAGE CONFIG ----
 st.set_page_config(page_title="Live Crypto Dashboard", layout="wide")
-st.title("💹 Live Multi-Crypto Dashboard with ML Predictions")
+st.title("Live Multi-Crypto Dashboard with ML Predictions")
 st.markdown("Real-time cryptocurrency prices with next-day trend & price predictions.")
 
 # ---- STEP 1: USER INPUT ----
@@ -49,7 +49,7 @@ coin_data_dict = {}
 for coin_name in selected_coins:
     coin_id = coins_dict[coin_name]
     coin_data_dict[coin_name] = fetch_coin_data(coin_id, timeframe)
-st.success("✅ Live data fetched successfully!")
+st.success(" Live data fetched successfully!")
 
 # ---- STEP 3: FEATURE ENGINEERING + ML ----
 results = []
@@ -105,7 +105,7 @@ for coin_name, df in coin_data_dict.items():
     })
 
 # ---- STEP 4: DISPLAY RESULTS ----
-st.markdown("## 🔮 Predictions & Signals")
+st.markdown("## Predictions & Signals")
 results_df = pd.DataFrame(results)
 st.dataframe(results_df)
 
@@ -125,3 +125,4 @@ for res in results:
         st.success(f"{res['Coin']}: BUY (Predicted Trend: {res['Predicted Trend']}, Price: ${res['Predicted Price']})")
     else:
         st.error(f"{res['Coin']}: SELL (Predicted Trend: {res['Predicted Trend']}, Price: ${res['Predicted Price']})")
+
