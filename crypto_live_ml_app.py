@@ -21,14 +21,24 @@ st.title("Live Multi-Crypto Dashboard with ML Predictions")
 st.markdown("Real-time cryptocurrency prices with next-day trend & price predictions.")
 
 # ---- STEP 1: USER INPUT ----
-coins_dict = {
+ coins_dict = {
     "Bitcoin (BTC)": "bitcoin",
     "Ethereum (ETH)": "ethereum",
     "Dogecoin (DOGE)": "dogecoin",
     "Solana (SOL)": "solana",
     "Cardano (ADA)": "cardano",
-    "Litecoin (LTC)": "litecoin"
+    "Litecoin (LTC)": "litecoin",
+    "Binance Coin (BNB)": "binancecoin",
+    "Ripple (XRP)": "ripple",
+    "Polkadot (DOT)": "polkadot",
+    "Avalanche (AVAX)": "avalanche-2",
+    "Shiba Inu (SHIB)": "shiba-inu",
+    "Tron (TRX)": "tron",
+    "Chainlink (LINK)": "chainlink",
+    "Polygon (MATIC)": "matic-network",
+    "Stellar (XLM)": "stellar"
 }
+
 
 selected_coins = st.multiselect("Select Cryptocurrencies:", list(coins_dict.keys()), default=["Bitcoin (BTC)", "Ethereum (ETH)"])
 timeframe = st.selectbox("Select Timeframe (days):", [1, 7, 30, 90, 180, 365], index=3)
@@ -125,4 +135,5 @@ for res in results:
         st.success(f"{res['Coin']}: BUY (Predicted Trend: {res['Predicted Trend']}, Price: ${res['Predicted Price']})")
     else:
         st.error(f"{res['Coin']}: SELL (Predicted Trend: {res['Predicted Trend']}, Price: ${res['Predicted Price']})")
+
 
