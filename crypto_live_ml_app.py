@@ -49,7 +49,7 @@ if "selected_coins" not in st.session_state:
     st.session_state.selected_coins = ["Bitcoin (BTC)", "Ethereum (ETH)"]
 
 # ---- TOP GAINERS / LOSERS SECTION ----
-st.markdown("## 🔥 Top 5 Gainers & ⚠️ Top 5 Losers (24h)")
+st.markdown("##  Top 5 Gainers & Top 5 Losers (24h)")
 
 @st.cache_data(ttl=300)
 def fetch_markets(vs_currency="usd", per_page=50, page=1):
@@ -96,8 +96,8 @@ with col1:
 
 with col2:
     st.write("")  # spacer
-    add_gainers = st.button("➕ Add Gainers to Selection")
-    add_losers = st.button("➕ Add Losers to Selection")
+    add_gainers = st.button(" Add Gainers to Selection")
+    add_losers = st.button(" Add Losers to Selection")
 
     # Buttons update session state and rerun
     if add_gainers and not top_gainers.empty:
@@ -188,7 +188,7 @@ for coin_name in selected_coins:
 st.success("Live data fetched successfully!")
 
 # ---- FEATURE ENGINEERING + ML ----
-st.markdown("## 🔮 Predictions & Signals (with Volume features)")
+st.markdown("##  Predictions & Signals (with Volume features)")
 results = []
 all_raw_for_download = {}
 all_predictions_for_download = []
@@ -388,3 +388,4 @@ st.markdown(
     "(Linear Regression and Logistic Regression) using engineered price & volume features. "
     "For better performance consider time-series models (ARIMA, Prophet, LSTM) and more data/features."
 )
+
